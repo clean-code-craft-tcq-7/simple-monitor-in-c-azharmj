@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <assert.h>
 
-#define CheckRange(X,Y,Z) (X<=Y || X>=Z)?0:1
+#define CheckRange(INPUT,MIN_LIMIT,MAX_LIMIT) (INPUT<=MIN_LIMIT || INPUT>=MAX_LIMIT)?0:1
 
 int Check_ChargeRate(float chargeRate);
 
