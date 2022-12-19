@@ -1,4 +1,4 @@
-#include "BatteryManagmentSystem.h"
+#include "BatteryHealth_cfg.h"
 
 #define TOLERENCEVALUE 5
 #define RangeChecker(X,Y,Z) (X<=Y && X>=Z)?1:0
