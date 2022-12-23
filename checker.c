@@ -14,7 +14,7 @@
 
 const char* Store_WarningMessage[MESSAGE_MAX];
 const char* PreWarningMessageTable[Warning_max] = {"Approaching_discharge","Approaching_charge_peak"};
-const char* WarningMessageTable[MAX_LANG][MESSAGE_MAX] = {
+const char* WarningMessageTable[MAX_LANG][MESSAGE_MAX] = {   /* As This is 2D array please update for new additional language only after MAX_LANG has updated */
 		{/*Language : DEFAULT */
 			"LOW_SOC_BREACH","LOW_SOC_WARNING","SOC_NORMAL","HIGH_SOC_WARNING","HIGH_SOC_BREACH","SOC_UNDEFINED"},
 		{/*Language : ENGLISH */
@@ -23,6 +23,7 @@ const char* WarningMessageTable[MAX_LANG][MESSAGE_MAX] = {
 			"LOW_SOC_BREACH","LOW_SOC_WARNUNG","SOC_NORMAL","HIGH_SOC_WARNUNG","HIGH_SOC_BREACH","SOC_UNDEFINED"},
 		{ /*Language : CHINA */
 			"L_S_BREACHEN","L_S_WARN!!","NORMAL","H_S_WARN!!","H_S_BREACHEN","UNDEFINED"}
+		/* Extend the table as per Requirements  */
 		
 	};
 
@@ -78,5 +79,9 @@ int main()
   assert(PreWarningMessageTable[PreWarningIndicatorMessage(77,SOCMIN,SOCMAX)] == "Approaching_charge_peak");
   assert(PreWarningMessageTable[PreWarningIndicatorMessage(1,TEMPMIN,TEMPMAX)] == "Approaching_discharge"); /* 5% of 45 is 2 , [0-2],[43-45] */
   assert(PreWarningMessageTable[PreWarningIndicatorMessage(44,TEMPMIN,TEMPMAX)] == "Approaching_charge_peak");
+  SelectLanguageandWarnigMessage(CHINA);
+  assert(Store_WarningMessage[(BatteryHelathMonitor(23))] == "L_S_WARN!!");
+ 
+
 
 }
